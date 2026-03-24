@@ -1,11 +1,11 @@
 from functools import wraps
 from datetime import datetime
 import time
+from typing import Dict, List, Any
 
+from valErr import ValidationError
 
-def validate(data, **rules):
-# data is a dict, rules are field: expected_type pairs     
-# # Return a list of error strings (empty = valid)     
+def validate(data: Dict[str, Any | None], **rules: str) -> List[str]:
     pass
 
 def timer(func):
