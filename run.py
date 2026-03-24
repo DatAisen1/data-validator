@@ -1,5 +1,6 @@
 from validator import timer, log_call
 import time
+from valErr import ValidationError
 
 @timer 
 @log_call
@@ -15,5 +16,13 @@ sample_data = {
     "age": 25,
     "email": "alice@example.com"
 }
+
+def main():
+    raw_record = sample_data
+
+    try: 
+        validate_record = validate(raw_record)
+    except ValidationError as e:
+        print(f"Validation failed for field '{e.field}': {e.message}")
 
 validate(sample_data)
